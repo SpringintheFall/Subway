@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>여행가이드에 오신 것을 환영합니다.</title>
+<style>
+*{margin:0; padding:0;}
+body{font-family:'Malgun Gothic',sans-serif; font-size:14px; line-height:1em; color:#999;}
+a{color:#999; text-decoration:none;}
+img{border:0; vertical-align:top;}
+select, input{vertical-align:top;}
+ul,ol{list-style:none;}
+
+#wrap{width:960px; height:1200px; margin:0 auto; overflow:hidden;}
+.inner{width:960px;margin:0 auto; }
+header{height:150px; position:fixed;width:100%; z-index:999;top:0;left:0;  }
+header h1{padding-top:30px;}
+nav{position:absolute; top:75px; left:400px;}
+nav .mainMenu > li{width:180px; text-align:center; float:left;}
+nav .mainMenu > li > a{font-size:16px; display:block; padding:10px 0;font-weight:bold; transition:all 0.5s;}
+nav .mainMenu > li:hover > a{background-color:#4298cc; color:#fff;}
+nav .subMenu{background-color:rgba(255,255,255,0.8); display:none;}
+nav .subMenu a{display:block; padding:5px 0;}
+nav .subMenu li a{transition:all 0.5s;}
+nav .subMenu li:hover a{background-color:#8f400c; color:#fff;}
+    
+</style>>
+<script src="js/jquery-3.1.1.min.js"></script>
+<script>
+  /*  $(function(){
+        $(".mainMenu > li").mouseover(function(){
+        $(this).children(".subMenu").stop().slideDown();
+      });
+       $(".mainMenu > li").mouseleave(function(){
+       $(this).children(".subMenu").stop().slideUp();
+       });
+    })*/
+	 $(function(){
+
+	  var menu = $('header');
+	  var menupos = menu.offset();
+      //menu.css({background: 'rgba(0,0,0,1)'});
+
+	  $(window).scroll(function(){
+		 //alert($(document).scrollTop());
+	     if($(document).scrollTop()>= 300){
+		 menu.css({background:'rgba(0,0,0,0.3)'}); }
+		 else {
+		 menu.css({background: 'rgba(0,0,0,0)'})}
+		 })
+
+
+	 $(".mainMenu > li").each(
+	    function(){
+		   var sub = $(this).find('.subMenu');
+
+    	   $(this).hover(function(){
+           sub.stop().slideDown();},function(){
+           sub.stop().slideUp();})
+      }) 
+
+
+  })
+</script>
+</head>
+
+<body>
+<div id="wrap">
+	<header>
+	<div class="inner">
+  	<h1><a href="#"><img src="images/logo.png" alt="로고"></a></h1>
+    <nav>
+    	<ul class="mainMenu">
+      	<li><a href="#">여행가이드 소개</a></li>
+        <li><a href="#">국내여행지</a>
+        	<ul class="subMenu">
+          	<li><a href="#">경기/강원</a></li>
+            <li><a href="#">충청도</a></li>
+            <li><a href="#">전라도</a></li>
+            <li><a href="#">경상도</a></li>
+          </ul>
+        </li>
+        <li><a href="#">해외여행지</a>
+        	<ul class="subMenu">
+          	<li><a href="#">동남아</a></li>
+            <li><a href="#">남태평양</a></li>
+            <li><a href="#">유럽</a></li>
+            <li><a href="#">미주/중남미</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+	</div>
+  </header>
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+<script src="js/jquery-3.1.1.min.js"></script>
+<script>
+$(function(){
+  //�˾�â �ݱ�
+    $('.pop_close').click(function(){
+        $('.pop').hide();
+    /*  �˾�â �ݱ⸦ ���̵��� �ٲ㺸���� 
+      $('.pop').fadeOut();    //������
+      $('.pop').fadeIn();  //��Ÿ��
+    */
+    })
+
+	  $(".modal .btn_close").click(function () {
+        setCookieMobile( "todayCookie", "done" , 1);
+        $(".modal").hide();
+    });
+});
+
+ 
+function setCookieMobile ( name, value, expiredays ) {
+    var todayDate = new Date();
+    todayDate.setDate( todayDate.getDate() + expiredays );
+    document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+}
+function getCookieMobile () {
+    var cookiedata = document.cookie;
+    if ( cookiedata.indexOf("todayCookier=done") < 0 ){
+         $(".modal").show();
+    }
+    else {
+        $(".modal").hide();
+    }
+}
+getCookieMobile();
+
+</script>
+
+<div class="pop">
+  <span class="pop_close">�ݱ�</span>
+</div>
+<div class="modal">
+    <a href="javascript:;" class="btn_close">�����Ϸ翭������</a>
+</div>
